@@ -1,58 +1,28 @@
-# Coffee Lab Website Implementation Plan
+# Coffee Lab Website Implementation Plan (GitHub-Centric Update)
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Build a "Kaffe Tech" minimalist Bento Grid website for Coffee Lab, showcasing live brew status and KaffePro's identity.
+**Goal:** Build a "Kaffe Tech" minimalist Bento Grid website for Coffee Lab, showcasing live brew status and KaffePro's identity, driven by GitHub JSON data.
 
-**Architecture:** Next.js 15 (App Router) with Tailwind CSS for layout and Framer Motion for coffee-inspired animations. Data will be driven by a simulated Brew API.
-
-**Tech Stack:** Next.js, Tailwind CSS, Framer Motion, Lucide React (icons), Vercel.
+**Architecture:** Next.js 15 (App Router). Instead of a live API, data is fetched directly from `data/brew.json` in the repository, allowing for simple GitHub-driven updates.
 
 ---
 
-### Task 1: Project Initialization & Scaffold
+### Task 1: Project Initialization & Scaffold (COMPLETED)
+### Task 2: Design System & Tailwind Setup (COMPLETED)
+### Task 3: The Bento Grid Core Layout (COMPLETED)
+### Task 4: Live Brew Status Component (COMPLETED)
 
-**Files:**
-- Create: `package.json`, `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`
-- Create: `app/layout.tsx`, `app/page.tsx`
-- Test: `tests/smoke-test.spec.ts`
+### Task 5: GitHub JSON Data Integration
+**Goal:** Transition simulation to real data from the Repo.
+**Steps:**
+1. Update `hooks/useBrewData.ts` to fetch from `/data/brew.json`.
+2. Implement dynamic SSR/SSG rendering for the metrics.
+3. Commit & Push.
 
-**Step 1: Create a basic package.json**
-**Step 2: Install core dependencies (Next.js, React, Tailwind, Framer Motion)**
-**Step 3: Write a smoke test to verify Next.js boots**
-**Step 4: Implement minimal "Hello Coffee Lab" page**
-**Step 5: Run test to verify it passes**
-**Step 6: Commit**
-
-### Task 2: Design System & Tailwind Setup
-
-**Files:**
-- Modify: `tailwind.config.ts`
-- Create: `app/globals.css`
-- Test: `tests/design-tokens.spec.ts`
-
-**Step 1: Inject our custom color palette (`#F9F9F9`, `#00D1FF`, `#3E2723`)**
-**Step 2: Set up typography (Inter/Noto Sans JP Vibe)**
-**Step 3: Commit**
-
-### Task 3: The Bento Grid Core Layout
-
-**Files:**
-- Create: `components/BentoGrid.tsx`, `components/BentoItem.tsx`
-- Modify: `app/page.tsx`
-
-**Step 1: Implement the responsive grid container**
-**Step 2: Create the placeholder items for C-position (Brew Status), Barista Console, and Snippets**
-**Step 3: Commit**
-
-### Task 4: Live Brew Status Component (C-Position)
-
-**Files:**
-- Create: `components/LiveBrewStatus.tsx`
-- Create: `hooks/useBrewData.ts`
-
-**Step 1: Implement the real-time progress bar animation**
-**Step 2: Add JSON-style data display for parameters**
-**Step 3: Commit**
-
----
+### Task 6: Final Deployment & README Polish
+**Goal:** Launch the portal on Vercel.
+**Steps:**
+1. Connect Repo to Vercel.
+2. Final review of the "Kaffe Tech" aesthetic.
+3. Commit with final README images.
