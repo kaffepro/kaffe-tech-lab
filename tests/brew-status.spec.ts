@@ -26,16 +26,16 @@ describe('Live Brew Status Component', () => {
   });
 
   it('should be integrated in page.tsx', () => {
-    const pageContent = fs.readFileSync(path.join(process.cwd(), 'app', 'page.tsx'), 'utf8');
+    const pageContent = fs.readFileSync(path.join(process.cwd(), 'app', '[locale]', 'page.tsx'), 'utf8');
     expect(pageContent).toContain('<LiveBrewStatus />');
   });
 
-  it('should have the requested metrics display', () => {
+  it('should have the requested metrics display via i18n', () => {
     const content = fs.readFileSync(path.join(componentsDir, 'LiveBrewStatus.tsx'), 'utf8');
-    expect(content).toContain('Temp');
-    expect(content).toContain('Time');
-    expect(content).toContain('Yield');
-    expect(content).toContain('Flow');
+    expect(content).toContain("t('temp')");
+    expect(content).toContain("t('time')");
+    expect(content).toContain("t('yield')");
+    expect(content).toContain("t('flow')");
   });
 });
 

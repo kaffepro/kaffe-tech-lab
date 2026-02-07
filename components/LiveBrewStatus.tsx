@@ -4,9 +4,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Coffee, Activity } from 'lucide-react';
 import { useBrewData } from '@/hooks/useBrewData';
+import { useTranslations } from 'next-intl';
 
 const LiveBrewStatus = () => {
   const { data, startBrewing, stopBrewing } = useBrewData();
+  const t = useTranslations('LiveBrewStatus');
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -25,17 +27,17 @@ const LiveBrewStatus = () => {
               className={`h-1.5 w-1.5 rounded-full ${data.isBrewing ? 'bg-accent-blue' : 'bg-stone-300'}`} 
             />
             <h3 className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
-              Live Telemetry
+              {t('telemetry')}
             </h3>
           </div>
           <h2 className="text-3xl font-light text-stone-800 tracking-tight">
-            Live Brew Status
+            {t('title')}
           </h2>
         </div>
         <button 
           onClick={data.isBrewing ? stopBrewing : startBrewing}
           className="group relative"
-          aria-label={data.isBrewing ? "Stop Brewing" : "Start Brewing"}
+          aria-label={data.isBrewing ? t('aria.stop') : t('aria.start')}
         >
           <Coffee className={`w-6 h-6 transition-colors duration-500 ${data.isBrewing ? 'text-accent-blue' : 'text-stone-200 group-hover:text-accent-coffee'}`} />
         </button>
@@ -53,14 +55,14 @@ const LiveBrewStatus = () => {
                 className="text-center"
               >
                 <Activity className="w-8 h-8 text-stone-200 mb-3 mx-auto" strokeWidth={1} />
-                <p className="text-stone-300 text-xs font-light tracking-wide italic">
-                  Waiting for brewing data...
+                <p className="text-stone-300 text-xs font-light tracking-wide italic px-4">
+                  {t('waiting')}
                 </p>
                 <button 
                   onClick={startBrewing}
                   className="mt-4 px-4 py-1.5 text-[10px] uppercase font-bold tracking-widest text-accent-blue border border-accent-blue/20 rounded-full hover:bg-accent-blue hover:text-white transition-all duration-300"
                 >
-                  Start Simulation
+                  {t('start')}
                 </button>
               </motion.div>
             ) : (
@@ -81,7 +83,7 @@ const LiveBrewStatus = () => {
                     className="absolute w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-accent-blue"
                   />
                   <div className="text-center z-10">
-                    <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-stone-400 block mb-1">Yield</span>
+                    <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-stone-400 block mb-1">{t('yield')}</span>
                     <span className="text-5xl font-extralight text-stone-800 font-mono tracking-tighter" id="brew-yield">
                       {data.yield.toFixed(1)}<span className="text-xl ml-1 text-stone-400">g</span>
                     </span>
@@ -114,20 +116,20 @@ const LiveBrewStatus = () => {
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-divider/40">
                   <div className="space-y-1">
                     <span className="text-[8px] uppercase font-bold tracking-widest text-stone-400 flex items-center gap-1">
-                      <Activity className="w-2.5 h-2.5" /> Temp
+                      <Activity className="w-2.5 h-2.5" /> {t('temp')}
                     </span>
                     <p className="text-lg font-light text-stone-800 font-mono" id="brew-temp">
                       {data.temperature.toFixed(1)}°C
                     </p>
                   </div>
                   <div className="space-y-1 border-x border-divider/20 px-4">
-                    <span className="text-[8px] uppercase font-bold tracking-widest text-stone-400">Time</span>
+                    <span className="text-[8px] uppercase font-bold tracking-widest text-stone-400">{t('time')}</span>
                     <p className="text-lg font-light text-stone-800 font-mono" id="brew-time">
                       {formatTime(data.time)}
                     </p>
                   </div>
                   <div className="space-y-1 pl-4">
-                    <span className="text-[8px] uppercase font-bold tracking-widest text-stone-400">Flow</span>
+                    <span className="text-[8px] uppercase font-bold tracking-widest text-stone-400">{t('flow')}</span>
                     <p className="text-lg font-light text-stone-800 font-mono flex items-baseline gap-1" id="brew-flow">
                       {data.flowRate.toFixed(1)} <span className="text-[10px] text-stone-400">g/s</span>
                     </p>

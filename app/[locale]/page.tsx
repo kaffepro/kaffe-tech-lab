@@ -3,25 +3,32 @@
 import BentoGrid from "@/components/BentoGrid";
 import BentoItem from "@/components/BentoItem";
 import LiveBrewStatus from "@/components/LiveBrewStatus";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Github, Terminal, Info } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Index");
+
   return (
     <main className="min-h-screen bg-background p-6 md:p-12 lg:p-24 selection:bg-accent-blue selection:text-white">
       {/* Header Section */}
-      <header className="mb-16">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-[1px] bg-accent-coffee/20" />
-          <h2 className="text-xs font-medium tracking-[0.3em] uppercase text-stone-400">
-            Coffee Lab / Terminal
-          </h2>
+      <header className="mb-16 flex justify-between items-start">
+        <div>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-8 h-[1px] bg-accent-coffee/20" />
+            <h2 className="text-xs font-medium tracking-[0.3em] uppercase text-stone-400">
+              {t("header.subtitle")}
+            </h2>
+          </div>
+          <div className="flex items-baseline gap-4">
+            <h1 className="text-5xl font-extralight text-stone-800 tracking-tight">
+              {t("header.title")}
+            </h1>
+            <span className="text-sm font-mono text-stone-300">{t("header.version")}</span>
+          </div>
         </div>
-        <div className="flex items-baseline gap-4">
-          <h1 className="text-5xl font-extralight text-stone-800 tracking-tight">
-            Kaffe Tech
-          </h1>
-          <span className="text-sm font-mono text-stone-300">OS v1.0.4</span>
-        </div>
+        <LanguageSwitcher />
       </header>
 
       {/* Bento Grid Layout */}
@@ -45,7 +52,7 @@ export default function Home() {
           <div className="p-8 h-full flex flex-col bg-white">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
-                System Interface
+                {t("barista.interface")}
               </h3>
               <div className="flex gap-1">
                 <div className="w-2 h-2 rounded-full bg-stone-100" />
@@ -54,7 +61,7 @@ export default function Home() {
               </div>
             </div>
             <h2 className="text-2xl font-light text-stone-800 tracking-tight mb-4">
-              Barista Console
+              {t("barista.title")}
             </h2>
             <div className="flex-1 flex gap-3">
               <div className="flex-1 rounded-xl bg-stone-900 p-4 flex items-center justify-center">
@@ -84,10 +91,10 @@ export default function Home() {
             <Github className="w-5 h-5 text-stone-300" />
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1">
-                Git / Master
+                {t("git.title")}
               </h3>
               <p className="text-stone-800 font-mono text-[11px] leading-tight">
-                feat: implement-bento-layout
+                {t("git.commit")}
               </p>
             </div>
           </div>
@@ -103,10 +110,10 @@ export default function Home() {
             <Info className="w-5 h-5 text-stone-300" />
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1">
-                Daily SOE
+                {t("soe.title")}
               </h3>
               <p className="text-stone-800 text-sm font-light leading-snug">
-                Ethiopia <span className="text-accent-coffee/60">Yirgacheffe</span>
+                {t("soe.bean")} <span className="text-accent-coffee/60">{t("soe.region")}</span>
               </p>
             </div>
           </div>
@@ -121,7 +128,7 @@ export default function Home() {
           <div className="p-6 h-full flex flex-col bg-stone-900 text-stone-400 font-mono text-[10px]">
             <div className="flex items-center gap-2 mb-4 text-accent-blue">
               <Terminal className="w-4 h-4" />
-              <span className="text-[10px] uppercase font-bold tracking-widest">Brew CLI</span>
+              <span className="text-[10px] uppercase font-bold tracking-widest">{t("cli.title")}</span>
             </div>
             <div className="space-y-1">
               <p><span className="text-stone-600">$</span> kaffe --status</p>
@@ -136,10 +143,10 @@ export default function Home() {
 
       {/* Footer Info */}
       <footer className="mt-16 flex justify-between items-center text-[10px] font-medium uppercase tracking-[0.2em] text-stone-300">
-        <p>© 2026 Kaffe Tech Lab</p>
+        <p>{t("footer.copyright")}</p>
         <div className="flex gap-6">
-          <p>Privacy</p>
-          <p>System Logs</p>
+          <p>{t("footer.privacy")}</p>
+          <p>{t("footer.logs")}</p>
         </div>
       </footer>
     </main>

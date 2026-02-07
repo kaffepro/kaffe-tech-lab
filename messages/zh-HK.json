@@ -1,0 +1,44 @@
+{
+  "Index": {
+    "header": {
+      "subtitle": "咖啡實驗室 / 終端",
+      "title": "Kaffe Tech",
+      "version": "系統版本 v1.0.4"
+    },
+    "barista": {
+      "interface": "系統介面",
+      "title": "咖啡師主控台"
+    },
+    "git": {
+      "title": "Git / 主分支",
+      "commit": "feat: 實作-bento-佈局"
+    },
+    "soe": {
+      "title": "今日單品 (SOE)",
+      "bean": "衣索比亞",
+      "region": "耶加雪菲"
+    },
+    "cli": {
+      "title": "沖煮 CLI"
+    },
+    "footer": {
+      "copyright": "© 2026 Kaffe Tech 實驗室",
+      "privacy": "隱私政策",
+      "logs": "系統日誌"
+    }
+  },
+  "LiveBrewStatus": {
+    "telemetry": "實時遙測",
+    "title": "即時沖煮狀態",
+    "waiting": "正在等待沖煮數據... 咖啡豆在偷懶嗎？",
+    "start": "啟動模擬",
+    "yield": "萃取重量",
+    "temp": "水溫",
+    "time": "時間",
+    "flow": "流速",
+    "aria": {
+      "stop": "停止沖煮",
+      "start": "開始沖煮"
+    }
+  }
+}

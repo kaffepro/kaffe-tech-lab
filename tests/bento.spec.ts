@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { describe, it, expect } from 'vitest';
 
 describe('Bento Grid Architecture', () => {
   const componentsDir = path.join(process.cwd(), 'components');
@@ -18,11 +19,12 @@ describe('Bento Grid Architecture', () => {
   });
 
   it('should implement the requested layout in page.tsx', () => {
-    const pageContent = fs.readFileSync(path.join(process.cwd(), 'app', 'page.tsx'), 'utf8');
-    expect(pageContent).toContain('Live Brew Status');
-    expect(pageContent).toContain('Barista Console');
-    expect(pageContent).toContain('GitHub Commit');
-    expect(pageContent).toContain('Today\'s SOE');
-    expect(pageContent).toContain('Brew CLI');
+    const pagePath = path.join(process.cwd(), 'app', '[locale]', 'page.tsx');
+    const pageContent = fs.readFileSync(pagePath, 'utf8');
+    expect(pageContent).toContain('LiveBrewStatus');
+    expect(pageContent).toContain('barista.title');
+    expect(pageContent).toContain('git.title');
+    expect(pageContent).toContain('soe.title');
+    expect(pageContent).toContain('cli.title');
   });
 });

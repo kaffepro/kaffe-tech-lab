@@ -1,0 +1,44 @@
+{
+  "Index": {
+    "header": {
+      "subtitle": "Coffee Lab / Terminal",
+      "title": "Kaffe Tech",
+      "version": "OS v1.0.4"
+    },
+    "barista": {
+      "interface": "System Interface",
+      "title": "Barista Console"
+    },
+    "git": {
+      "title": "Git / Master",
+      "commit": "feat: implement-bento-layout"
+    },
+    "soe": {
+      "title": "Daily SOE",
+      "bean": "Ethiopia",
+      "region": "Yirgacheffe"
+    },
+    "cli": {
+      "title": "Brew CLI"
+    },
+    "footer": {
+      "copyright": "© 2026 Kaffe Tech Lab",
+      "privacy": "Privacy",
+      "logs": "System Logs"
+    }
+  },
+  "LiveBrewStatus": {
+    "telemetry": "Live Telemetry",
+    "title": "Live Brew Status",
+    "waiting": "Waiting for brewing data...",
+    "start": "Start Simulation",
+    "yield": "Yield",
+    "temp": "Temp",
+    "time": "Time",
+    "flow": "Flow",
+    "aria": {
+      "stop": "Stop Brewing",
+      "start": "Start Brewing"
+    }
+  }
+}
